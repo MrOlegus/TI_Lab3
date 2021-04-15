@@ -43,10 +43,11 @@ namespace RSA_GUI
             this.labelD = new System.Windows.Forms.Label();
             this.textOrigin = new System.Windows.Forms.TextBox();
             this.labelCaption = new System.Windows.Forms.Label();
-            this.textCrypt = new System.Windows.Forms.TextBox();
             this.buttonCrypt = new System.Windows.Forms.Button();
             this.buttonDecrypt = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textSignature = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelP
@@ -173,28 +174,18 @@ namespace RSA_GUI
             this.textOrigin.Multiline = true;
             this.textOrigin.Name = "textOrigin";
             this.textOrigin.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textOrigin.Size = new System.Drawing.Size(605, 177);
+            this.textOrigin.Size = new System.Drawing.Size(605, 299);
             this.textOrigin.TabIndex = 12;
             // 
             // labelCaption
             // 
             this.labelCaption.AutoSize = true;
             this.labelCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCaption.Location = new System.Drawing.Point(102, 9);
+            this.labelCaption.Location = new System.Drawing.Point(152, 9);
             this.labelCaption.Name = "labelCaption";
-            this.labelCaption.Size = new System.Drawing.Size(617, 48);
+            this.labelCaption.Size = new System.Drawing.Size(490, 48);
             this.labelCaption.TabIndex = 13;
-            this.labelCaption.Text = "Шифратор и дешифратор RSA";
-            // 
-            // textCrypt
-            // 
-            this.textCrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textCrypt.Location = new System.Drawing.Point(230, 255);
-            this.textCrypt.Multiline = true;
-            this.textCrypt.Name = "textCrypt";
-            this.textCrypt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textCrypt.Size = new System.Drawing.Size(605, 177);
-            this.textCrypt.TabIndex = 14;
+            this.labelCaption.Text = "Цифровая подпись RSA";
             // 
             // buttonCrypt
             // 
@@ -203,7 +194,7 @@ namespace RSA_GUI
             this.buttonCrypt.Name = "buttonCrypt";
             this.buttonCrypt.Size = new System.Drawing.Size(300, 52);
             this.buttonCrypt.TabIndex = 15;
-            this.buttonCrypt.Text = "Зашифровать";
+            this.buttonCrypt.Text = "Найти ключ";
             this.buttonCrypt.UseVisualStyleBackColor = true;
             this.buttonCrypt.Click += new System.EventHandler(this.buttonCrypt_Click);
             // 
@@ -214,7 +205,7 @@ namespace RSA_GUI
             this.buttonDecrypt.Name = "buttonDecrypt";
             this.buttonDecrypt.Size = new System.Drawing.Size(300, 52);
             this.buttonDecrypt.TabIndex = 16;
-            this.buttonDecrypt.Text = "Расшифровать";
+            this.buttonDecrypt.Text = "Проверить подпись";
             this.buttonDecrypt.UseVisualStyleBackColor = true;
             this.buttonDecrypt.Click += new System.EventHandler(this.buttonDecrypt_Click);
             // 
@@ -229,6 +220,24 @@ namespace RSA_GUI
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textSignature
+            // 
+            this.textSignature.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textSignature.Location = new System.Drawing.Point(446, 377);
+            this.textSignature.Name = "textSignature";
+            this.textSignature.Size = new System.Drawing.Size(387, 55);
+            this.textSignature.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(230, 377);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(198, 48);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Подпись:";
+            // 
             // FormRSA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -236,10 +245,11 @@ namespace RSA_GUI
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(845, 498);
+            this.Controls.Add(this.textSignature);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDecrypt);
             this.Controls.Add(this.buttonCrypt);
-            this.Controls.Add(this.textCrypt);
             this.Controls.Add(this.labelCaption);
             this.Controls.Add(this.textOrigin);
             this.Controls.Add(this.textD);
@@ -278,10 +288,11 @@ namespace RSA_GUI
         private System.Windows.Forms.Label labelD;
         private System.Windows.Forms.TextBox textOrigin;
         private System.Windows.Forms.Label labelCaption;
-        private System.Windows.Forms.TextBox textCrypt;
         private System.Windows.Forms.Button buttonCrypt;
         private System.Windows.Forms.Button buttonDecrypt;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textSignature;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -8,3 +8,13 @@ C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_GUI\bin\
 C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_GUI\bin\Debug\RSA_GUI.pdb
 C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_GUI\obj\Debug\RSA_GUI.exe
 C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_GUI\obj\Debug\RSA_GUI.pdb
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\bin\Debug\RSA_GUI.exe.config
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\bin\Debug\RSA_GUI.exe
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\bin\Debug\RSA_GUI.pdb
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\obj\Debug\RSA_GUI.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\obj\Debug\RSA_GUI.FormRSA.resources
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\obj\Debug\RSA_GUI.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\obj\Debug\RSA_GUI.csproj.GenerateResource.cache
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\obj\Debug\RSA_GUI.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\obj\Debug\RSA_GUI.exe
+C:\Users\Lenovo\Desktop\БГУИР\2 курс\семестр 2\ТИ\RSA_Signature\obj\Debug\RSA_GUI.pdb

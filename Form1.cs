@@ -16,7 +16,7 @@ namespace RSA_GUI
 
 		List<ulong> prime = new List<ulong>();
 
-		ulong p, q, r, f, E, d;
+		ulong p, q, r, f, E, d, S;
 
 		string message;                                 // искомый текст
 		List<ulong> crypt = new List<ulong>();          // зашифрованный текст
@@ -99,15 +99,15 @@ namespace RSA_GUI
 
 		ulong getNumber(char letter)
 		{
-			if ((letter >= 'a') && (letter <= 'z')) return (ulong)letter - 'a' + 2;
-			if ((letter >= 'A') && (letter <= 'Z')) return (ulong)letter - 'A' + 2;
+			if ((letter >= 'a') && (letter <= 'z')) return (ulong)letter - 'a' + 1;
+			if ((letter >= 'A') && (letter <= 'Z')) return (ulong)letter - 'A' + 1;
 			if (letter == ' ') return 28; // пробел считаем символом алфавита
 			return 0;
 		}
 
 		char getLetter(ulong number)
         {
-			if ((number >= 2) && (number <= 27)) return (char)('a' + number - 2);
+			if ((number >= 1) && (number <= 26)) return (char)('a' + number - 1);
 			if (number == 28) return ' ';
 			return '\0';
         }
@@ -141,8 +141,18 @@ namespace RSA_GUI
         private void FormRSA_Load(object sender, EventArgs e)
         {
 			findPrimeNumbers();                            // получения массива простых чисел
-			MessageBox.Show("Параметры можно водить самостоятельно, а можно сгенерировать их случайно. Если параметры введены неверно, программа уведомит Вас об этом.\r\nЯзык - английский.\r\nШифруются английские буквы и пробелы, остальное - удаляется.");
+			//MessageBox.Show("Параметры можно водить самостоятельно, а можно сгенерировать их случайно. Если параметры введены неверно, программа уведомит Вас об этом.\r\nЯзык - английский.\r\nШифруются английские буквы и пробелы, остальное - удаляется.");
 		}
+
+		static ulong hPred = 100;
+
+        private ulong H(ulong m, int i)
+        {
+			if (i == 0) hPred = 100;
+			ulong h = (ulong)Math.Pow(hPred + m, 2) % r;
+			hPred = h;
+		    return h;
+        }
 
         bool isValid() // проверка на корректность параметров
         {
@@ -223,8 +233,9 @@ namespace RSA_GUI
             }
 			textOrigin.Text = message;
 
-		    crypt = new List<ulong>();          // зашифрованный текст
+			//crypt = new List<ulong>();          // зашифрованный текст
 
+			/*
 			for (int i = 0; i < message.Length; i++)
 			{
 				crypt.Add(fastExp(getNumber(message[i]), E, r));
@@ -236,16 +247,46 @@ namespace RSA_GUI
 				textCrypt.Text += crypt[i].ToString();
 				textCrypt.Text += " ";
 			}
+			*/
+
+			ulong h = 0;
+			for (int i = 0; i < message.Length; i++)
+            {
+				h = H(getNumber(message[i]), i);
+            }
+
+			S = fastExp(h, d, r);
+
+			textSignature.Text = S.ToString();
 		}
 
 		private void buttonDecrypt_Click(object sender, EventArgs e)
 		{
+			/*
 			message = "";
 			for (int i = 0; i < crypt.Count; i++)
             {
 				message += getLetter(fastExp(crypt[i], d, r));
             }
 			textOrigin.Text = message;
+			*/
+
+			message = textOrigin.Text;
+
+			ulong h1 = 0;
+			for (int i = 0; i < message.Length; i++)
+			{
+				h1 = H(getNumber(message[i]), i);
+			}
+
+			ulong m = Convert.ToUInt64(textSignature.Text);
+			ulong h2 = fastExp(m, E, r);
+
+			MessageBox.Show("h1 = " + h1.ToString() + "\r\n" + 
+				            "h2 = " + h2.ToString() + "\r\n" +
+							((h1 == h2) ? "Подпись действительна" :
+							              "Подпись недействительна"));
+
 		}
 
 		private void button1_Click(object sender, EventArgs e)
